@@ -4,13 +4,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bean Scene</title>  
-  <link rel="stylesheet" href="css/normalize.css">
+  <title>Bean Scene</title>    
   <link rel="stylesheet" href="css/style.css">
   <script type="module" src="js/main.js" defer></script>
 </head>
 
-<body>  
-</body>
+<body class="page">
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <div class="header__inner">
+        <a href="#" class="header__logo">Bean Scene</a>
 
+        <nav class="nav header__nav" id="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#menu" class="nav__link">Menu</a></li>
+            <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
+            <li class="nav__item"><a href="#contact" class="nav__link">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="header__auth">
+          <button type="button" class="btn btn--text header__auth-btn header__auth-btn--active"
+            data-auth-type="signin">Sign In</button>
+          <button type="button" class="btn btn--primary header__auth-btn" data-auth-type="signup">Sign Up</button>
+        </div>
+
+        <button type="button" class="burger header__burger" id="burgerBtn" aria-label="Toggle menu"
+          aria-expanded="false">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu header__mobile-menu" id="mobileMenu">
+      <div class="mobile-menu__inner">
+        <nav class="mobile-menu__nav">
+          <ul class="mobile-menu__list">
+            <li class="mobile-menu__item"><a href="#home" class="mobile-menu__link">Home</a></li>
+            <li class="mobile-menu__item"><a href="#menu" class="mobile-menu__link">Menu</a></li>
+            <li class="mobile-menu__item"><a href="#about" class="mobile-menu__link">About Us</a></li>
+            <li class="mobile-menu__item"><a href="#contact" class="mobile-menu__link">Contact Us</a></li>
+            <li class="mobile-menu__item mobile-menu__divider"></li>
+            <li class="mobile-menu__item">
+              <button type="button" class="mobile-menu__btn header__auth-btn header__auth-btn--active"
+                data-auth-type="signin">Sign In</button>
+            </li>
+            <li class="mobile-menu__item">
+              <button type="button" class="btn btn--primary mobile-menu__btn header__auth-btn"
+                data-auth-type="signup">Sign Up</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Modal Sign In -->
+  <div class="modal" id="modalSignin">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__content">
+      <button type="button" class="modal__close" data-modal-close>&times;</button>
+      <h2 class="modal__title">Sign In</h2>
+      <form class="modal__form" id="formSignin">
+        <div class="modal__field">
+          <label for="signinEmail" class="modal__label">Email</label>
+          <input type="email" id="signinEmail" class="modal__input" placeholder="your@email.com" required>
+        </div>
+        <div class="modal__field">
+          <label for="signinPassword" class="modal__label">Password</label>
+          <input type="password" id="signinPassword" class="modal__input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn--primary modal__submit">Sign In</button>
+      </form>
+      <p class="modal__text">Don't have an account? <button type="button" class="modal__link"
+          data-modal-switch="signup">Sign Up</button></p>
+    </div>
+  </div>
+
+  <!-- Modal Sign Up -->
+  <div class="modal" id="modalSignup">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__content">
+      <button type="button" class="modal__close" data-modal-close>&times;</button>
+      <h2 class="modal__title">Sign Up</h2>
+      <form class="modal__form" id="formSignup">
+        <div class="modal__field">
+          <label for="signupName" class="modal__label">Name</label>
+          <input type="text" id="signupName" class="modal__input" placeholder="John Doe" required>
+        </div>
+        <div class="modal__field">
+          <label for="signupEmail" class="modal__label">Email</label>
+          <input type="email" id="signupEmail" class="modal__input" placeholder="your@email.com" required>
+        </div>
+        <div class="modal__field">
+          <label for="signupPassword" class="modal__label">Password</label>
+          <input type="password" id="signupPassword" class="modal__input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn--primary modal__submit">Sign Up</button>
+      </form>
+      <p class="modal__text">Already have an account? <button type="button" class="modal__link"
+          data-modal-switch="signin">Sign In</button></p>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero__bg"></div>
+      <div class="hero__overlay"></div>
+      <div class="container hero__container">
+        <div class="hero__content">
+          <p class="hero__subtitle">We've got your morning covered with</p>
+          <h1 class="hero__title">Coffee</h1>
+          <p class="hero__text">
+            It is best to start your day with a cup of coffee. Discover the best flavours coffee you will ever have. We
+            provide the best for our customers.
+          </p>
+          <button type="button" class="btn btn--primary hero__btn" id="orderBtn">Order Now</button>
+        </div>
+      </div>
+      <div class="hero__scroll">
+        <span class="hero__scroll-text">Scroll Down</span>
+        <div class="hero__scroll-arrow"></div>
+      </div>
+    </section>
+    
+    <!-- Order Modal -->
+    <div class="modal" id="modalOrder">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__content">
+        <button type="button" class="modal__close" data-modal-close>&times;</button>
+        <h2 class="modal__title">Order Now</h2>
+        <form class="modal__form" id="formOrder">
+          <div class="modal__field">
+            <label for="orderName" class="modal__label">Your Name</label>
+            <input type="text" id="orderName" class="modal__input" placeholder="John Doe" required>
+          </div>
+          <div class="modal__field">
+            <label for="orderPhone" class="modal__label">Phone Number</label>
+            <input type="tel" id="orderPhone" class="modal__input" placeholder="+1 234 567 8900" required>
+          </div>
+          <div class="modal__field">
+            <label for="orderCoffee" class="modal__label">Choose Coffee</label>
+            <select id="orderCoffee" class="modal__input" required>
+              <option value="" disabled selected>Select your coffee</option>
+              <option value="cappuccino">Cappuccino - $8.50</option>
+              <option value="latte">Chai Latte - $8.50</option>
+              <option value="macchiato">Macchiato - $8.50</option>
+              <option value="espresso">Espresso - $8.50</option>
+            </select>
+          </div>
+          <div class="modal__field">
+            <label for="orderAddress" class="modal__label">Delivery Address</label>
+            <textarea id="orderAddress" class="modal__input modal__textarea" placeholder="Your delivery address" rows="3"
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary modal__submit">Place Order</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="about section" id="about">
+      <div class="container about__container">
+        <div class="about__inner">
+          <div class="about__content">
+            <h2 class="section-title about__title">Discover the best coffee</h2>
+            <p class="about__text">
+              Bean Scene is a coffee shop that provides you with quality coffee that helps boost your productivity and helps
+              build your mood. Having a cup of coffee is good, but having a cup of real coffee is greater. There is no doubt
+              that you will enjoy this coffee more than others you have ever tasted.
+            </p>
+            <button type="button" class="btn btn--primary about__btn" id="aboutBtn">Learn More</button>
+          </div>
+          <div class="about__image">
+            <img src="img/coffee-beans.png" alt="Coffee beans"
+              class="about__img" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Info Modal -->
+    <div class="modal" id="modalInfo">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__content">
+        <button type="button" class="modal__close" data-modal-close>&times;</button>
+        <h2 class="modal__title">About Bean Scene</h2>
+        <div class="modal__body">
+          <p class="modal__info-text">
+            We are passionate about coffee. Our beans are sourced from the best farms around the world and roasted to
+            perfection.
+          </p>
+          <ul class="modal__list">
+            <li class="modal__list-item">✓ Premium quality beans</li>
+            <li class="modal__list-item">✓ Expert roasters</li>
+            <li class="modal__list-item">✓ Fresh delivery</li>
+            <li class="modal__list-item">✓ Satisfaction guaranteed</li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn--primary modal__submit" data-modal-close>Got It</button>
+      </div>
+    </div>
+  </main>
+
+</body>
 </html>
